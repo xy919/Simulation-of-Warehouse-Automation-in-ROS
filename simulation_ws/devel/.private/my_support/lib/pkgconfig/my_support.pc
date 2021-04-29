@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/devel/.private/my_support
+
+Name: my_support
+Description: Description of my_support
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

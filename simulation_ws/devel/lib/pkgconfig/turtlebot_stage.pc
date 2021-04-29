@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/turtlebot_stage/lib/pkgconfig/turtlebot_stage.pc

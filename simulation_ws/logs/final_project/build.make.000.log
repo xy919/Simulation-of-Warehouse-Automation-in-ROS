@@ -1,0 +1,66 @@
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_cpp[0m
+[  0%] Built target nav_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target _final_project_generate_messages_check_deps_Trajectory[0m
+[  0%] Built target _final_project_generate_messages_check_deps_Trajectory
+[35m[1mScanning dependencies of target _final_project_generate_messages_check_deps_AprilTag[0m
+[35m[1mScanning dependencies of target _final_project_generate_messages_check_deps_Centroid[0m
+[  0%] Built target _final_project_generate_messages_check_deps_AprilTag
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[  0%] Built target _final_project_generate_messages_check_deps_Centroid
+[  0%] Built target std_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py[0m
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_py
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_py[0m
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target nav_msgs_generate_messages_py
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_nodejs[0m
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target nav_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_eus[0m
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target nav_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_eus[0m
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp[0m
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_lisp[0m
+[  0%] Built target nav_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[  0%] Built target std_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target final_project_generate_messages_cpp[0m
+[  5%] [34m[1mGenerating C++ code from final_project/AprilTag.msg[0m
+[35m[1mScanning dependencies of target final_project_generate_messages_py[0m
+[ 11%] [34m[1mGenerating Python from MSG final_project/AprilTag[0m
+[ 16%] [34m[1mGenerating C++ code from final_project/Centroid.srv[0m
+[ 22%] [34m[1mGenerating Python code from SRV final_project/Centroid[0m
+[ 27%] [34m[1mGenerating Python code from SRV final_project/Trajectory[0m
+[ 33%] [34m[1mGenerating Python msg __init__.py for final_project[0m
+[ 38%] [34m[1mGenerating C++ code from final_project/Trajectory.srv[0m
+[ 44%] [34m[1mGenerating Python srv __init__.py for final_project[0m
+[ 44%] Built target final_project_generate_messages_py
+[35m[1mScanning dependencies of target final_project_generate_messages_nodejs[0m
+[ 50%] [34m[1mGenerating Javascript code from final_project/AprilTag.msg[0m
+[ 50%] Built target final_project_generate_messages_cpp
+[ 55%] [34m[1mGenerating Javascript code from final_project/Centroid.srv[0m
+[35m[1mScanning dependencies of target final_project_generate_messages_eus[0m
+[ 61%] [34m[1mGenerating EusLisp code from final_project/AprilTag.msg[0m
+[ 66%] [34m[1mGenerating Javascript code from final_project/Trajectory.srv[0m
+[ 66%] Built target final_project_generate_messages_nodejs
+[ 72%] [34m[1mGenerating EusLisp code from final_project/Centroid.srv[0m
+[35m[1mScanning dependencies of target final_project_generate_messages_lisp[0m
+[ 77%] [34m[1mGenerating Lisp code from final_project/AprilTag.msg[0m
+[ 83%] [34m[1mGenerating EusLisp code from final_project/Trajectory.srv[0m
+[ 88%] [34m[1mGenerating Lisp code from final_project/Centroid.srv[0m
+[ 94%] [34m[1mGenerating EusLisp manifest code for final_project[0m
+[100%] [34m[1mGenerating Lisp code from final_project/Trajectory.srv[0m
+[100%] Built target final_project_generate_messages_lisp
+[100%] Built target final_project_generate_messages_eus
+[35m[1mScanning dependencies of target final_project_generate_messages[0m
+[100%] Built target final_project_generate_messages

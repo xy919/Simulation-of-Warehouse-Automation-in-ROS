@@ -1,0 +1,6 @@
+kobuki/kobuki_safety_controller
+/home/comp2/simulation_ws/devel/.private/kobuki_safety_controller/cmake.lock /home/comp2/simulation_ws/devel/./cmake.lock
+/home/comp2/simulation_ws/devel/.private/kobuki_safety_controller/lib/libkobuki_safety_controller_nodelet.so /home/comp2/simulation_ws/devel/lib/libkobuki_safety_controller_nodelet.so
+/home/comp2/simulation_ws/devel/.private/kobuki_safety_controller/lib/pkgconfig/kobuki_safety_controller.pc /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_safety_controller.pc
+/home/comp2/simulation_ws/devel/.private/kobuki_safety_controller/share/kobuki_safety_controller/cmake/kobuki_safety_controllerConfig.cmake /home/comp2/simulation_ws/devel/share/kobuki_safety_controller/cmake/kobuki_safety_controllerConfig.cmake
+/home/comp2/simulation_ws/devel/.private/kobuki_safety_controller/share/kobuki_safety_controller/cmake/kobuki_safety_controllerConfig-version.cmake /home/comp2/simulation_ws/devel/share/kobuki_safety_controller/cmake/kobuki_safety_controllerConfig-version.cmake

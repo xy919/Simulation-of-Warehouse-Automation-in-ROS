@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/rviz_map/lib/pkgconfig/rviz_map.pc

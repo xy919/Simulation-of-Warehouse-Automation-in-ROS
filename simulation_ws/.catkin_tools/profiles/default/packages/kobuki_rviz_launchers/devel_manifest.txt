@@ -1,0 +1,5 @@
+kobuki_desktop/kobuki_rviz_launchers
+/home/comp2/simulation_ws/devel/.private/kobuki_rviz_launchers/cmake.lock /home/comp2/simulation_ws/devel/./cmake.lock
+/home/comp2/simulation_ws/devel/.private/kobuki_rviz_launchers/lib/pkgconfig/kobuki_rviz_launchers.pc /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_rviz_launchers.pc
+/home/comp2/simulation_ws/devel/.private/kobuki_rviz_launchers/share/kobuki_rviz_launchers/cmake/kobuki_rviz_launchersConfig.cmake /home/comp2/simulation_ws/devel/share/kobuki_rviz_launchers/cmake/kobuki_rviz_launchersConfig.cmake
+/home/comp2/simulation_ws/devel/.private/kobuki_rviz_launchers/share/kobuki_rviz_launchers/cmake/kobuki_rviz_launchersConfig-version.cmake /home/comp2/simulation_ws/devel/share/kobuki_rviz_launchers/cmake/kobuki_rviz_launchersConfig-version.cmake

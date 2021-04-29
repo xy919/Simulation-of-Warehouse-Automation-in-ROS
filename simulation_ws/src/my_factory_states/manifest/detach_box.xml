@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Detach_box">
+
+	<executable package_path="my_factory_states.detach_box_sm" class="Detach_boxSM" />
+	<tagstring></tagstring>
+	<author>xinyinhoe</author>
+	<date>Fri Mar 26 2021</date>
+	<description>
+		release box from gripper
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

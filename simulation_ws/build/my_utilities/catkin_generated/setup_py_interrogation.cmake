@@ -1,0 +1,7 @@
+set(my_utilities_SETUP_PY_SETUP_MODULE "distutils.core")
+set(my_utilities_SETUP_PY_VERSION "0.1.0")
+set(my_utilities_SETUP_PY_SCRIPTS "")
+set(my_utilities_SETUP_PY_PACKAGES "my_utilities")
+set(my_utilities_SETUP_PY_PACKAGE_DIRS "src/my_utilities")
+set(my_utilities_SETUP_PY_MODULES "")
+set(my_utilities_SETUP_PY_MODULE_DIRS "")

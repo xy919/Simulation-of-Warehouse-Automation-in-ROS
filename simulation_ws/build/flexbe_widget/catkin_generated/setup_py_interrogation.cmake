@@ -1,0 +1,7 @@
+set(flexbe_widget_SETUP_PY_SETUP_MODULE "distutils.core")
+set(flexbe_widget_SETUP_PY_VERSION "1.3.1")
+set(flexbe_widget_SETUP_PY_SCRIPTS "")
+set(flexbe_widget_SETUP_PY_PACKAGES "flexbe_widget")
+set(flexbe_widget_SETUP_PY_PACKAGE_DIRS "src/flexbe_widget")
+set(flexbe_widget_SETUP_PY_MODULES "")
+set(flexbe_widget_SETUP_PY_MODULE_DIRS "")

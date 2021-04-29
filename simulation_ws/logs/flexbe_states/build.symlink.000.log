@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/flexbe_states/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/flexbe_states.pc
+Symlinking /home/comp2/simulation_ws/devel/share/flexbe_states/cmake/flexbe_statesConfig-version.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/flexbe_states/cmake/flexbe_statesConfig.cmake

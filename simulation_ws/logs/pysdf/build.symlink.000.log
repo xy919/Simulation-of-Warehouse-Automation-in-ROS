@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/pysdf/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/pysdf.pc
+Symlinking /home/comp2/simulation_ws/devel/share/pysdf/cmake/pysdfConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/pysdf/cmake/pysdfConfig-version.cmake

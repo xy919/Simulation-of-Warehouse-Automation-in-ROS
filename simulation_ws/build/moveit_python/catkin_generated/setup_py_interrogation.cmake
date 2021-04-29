@@ -1,0 +1,7 @@
+set(moveit_python_SETUP_PY_SETUP_MODULE "distutils.core")
+set(moveit_python_SETUP_PY_VERSION "0.4.1")
+set(moveit_python_SETUP_PY_SCRIPTS "")
+set(moveit_python_SETUP_PY_PACKAGES "moveit_python")
+set(moveit_python_SETUP_PY_PACKAGE_DIRS "src/moveit_python")
+set(moveit_python_SETUP_PY_MODULES "")
+set(moveit_python_SETUP_PY_MODULE_DIRS "")

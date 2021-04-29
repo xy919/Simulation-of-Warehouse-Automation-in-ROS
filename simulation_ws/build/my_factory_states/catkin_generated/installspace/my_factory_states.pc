@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/install
+
+Name: my_factory_states
+Description: Description of my_factory_states
+Version: 1.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lmy_factory_states
+Requires: 

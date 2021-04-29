@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/kobuki_dashboard/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_dashboard.pc
+Symlinking /home/comp2/simulation_ws/devel/share/kobuki_dashboard/cmake/kobuki_dashboardConfig-version.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/kobuki_dashboard/cmake/kobuki_dashboardConfig.cmake

@@ -1,0 +1,6 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/kobuki_qtestsuite/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_qtestsuite.pc
+Symlinking /home/comp2/simulation_ws/devel/share/kobuki_qtestsuite/cmake/kobuki_qtestsuiteConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/kobuki_qtestsuite/cmake/kobuki_qtestsuiteConfig-version.cmake
+Symlinking /home/comp2/simulation_ws/devel/bin/cmake.lock
+Symlinking /home/comp2/simulation_ws/devel/bin/kobuki_qtestsuite

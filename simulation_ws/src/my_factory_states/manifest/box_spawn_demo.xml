@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Box_spawn_demo">
+
+	<executable package_path="my_factory_states.box_spawn_demo_sm" class="Box_spawn_demoSM" />
+	<tagstring></tagstring>
+	<author>xinyinhoe</author>
+	<date>Tue Mar 16 2021</date>
+	<description>
+		spawning a box into bin1
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

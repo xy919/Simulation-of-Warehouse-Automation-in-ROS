@@ -1,0 +1,4 @@
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_dashboard/lib/python2.7/dist-packages/kobuki_dashboard/__init__.py, /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/kobuki_dashboard/__init__.py)
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_dashboard/lib/pkgconfig/kobuki_dashboard.pc, /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_dashboard.pc)
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_dashboard/share/kobuki_dashboard/cmake/kobuki_dashboardConfig-version.cmake, /home/comp2/simulation_ws/devel/share/kobuki_dashboard/cmake/kobuki_dashboardConfig-version.cmake)
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_dashboard/share/kobuki_dashboard/cmake/kobuki_dashboardConfig.cmake, /home/comp2/simulation_ws/devel/share/kobuki_dashboard/cmake/kobuki_dashboardConfig.cmake)

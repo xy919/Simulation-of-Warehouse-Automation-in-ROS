@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/etc/catkin/profile.d/25.turtlebot-stage.sh
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/turtlebot_stage.pc
+Symlinking /home/comp2/simulation_ws/devel/share/turtlebot_stage/cmake/turtlebot_stageConfig-version.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/turtlebot_stage/cmake/turtlebot_stageConfig.cmake

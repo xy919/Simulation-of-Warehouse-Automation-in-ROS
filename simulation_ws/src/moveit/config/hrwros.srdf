@@ -1,0 +1,1233 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="hrwros">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="robot1">
+        <chain base_link="robot1_base_link" tip_link="vacuum_gripper1_suction_cup" />
+    </group>
+    <group name="robot2">
+        <chain base_link="robot2_base_link" tip_link="vacuum_gripper2_suction_cup" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="R1Up" group="robot1">
+        <joint name="robot1_elbow_joint" value="0" />
+        <joint name="robot1_shoulder_lift_joint" value="-1.57" />
+        <joint name="robot1_shoulder_pan_joint" value="-3.1415" />
+        <joint name="robot1_wrist_1_joint" value="-1.57" />
+        <joint name="robot1_wrist_2_joint" value="0" />
+        <joint name="robot1_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R2Up" group="robot2">
+        <joint name="robot2_elbow_joint" value="0" />
+        <joint name="robot2_shoulder_lift_joint" value="-1.57" />
+        <joint name="robot2_shoulder_pan_joint" value="1.57" />
+        <joint name="robot2_wrist_1_joint" value="-1.57" />
+        <joint name="robot2_wrist_2_joint" value="0" />
+        <joint name="robot2_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R1PrePlace" group="robot1">
+        <joint name="robot1_elbow_joint" value="1.8571" />
+        <joint name="robot1_shoulder_lift_joint" value="-0.781" />
+        <joint name="robot1_shoulder_pan_joint" value="-1.753" />
+        <joint name="robot1_wrist_1_joint" value="-2.6208" />
+        <joint name="robot1_wrist_2_joint" value="-1.57" />
+        <joint name="robot1_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R1Pick" group="robot1">
+        <joint name="robot1_elbow_joint" value="1.5794" />
+        <joint name="robot1_shoulder_lift_joint" value="-0.0868" />
+        <joint name="robot1_shoulder_pan_joint" value="-0.1909" />
+        <joint name="robot1_wrist_1_joint" value="-3.1415" />
+        <joint name="robot1_wrist_2_joint" value="-1.5447" />
+        <joint name="robot1_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R2Place" group="robot2">
+        <joint name="robot2_elbow_joint" value="1.3364" />
+        <joint name="robot2_shoulder_lift_joint" value="-0.3992" />
+        <joint name="robot2_shoulder_pan_joint" value="1.7183" />
+        <joint name="robot2_wrist_1_joint" value="-2.5861" />
+        <joint name="robot2_wrist_2_joint" value="-1.5447" />
+        <joint name="robot2_wrist_3_joint" value="-0.1483" />
+    </group_state>
+    <group_state name="R2Pick" group="robot2">
+        <joint name="robot2_elbow_joint" value="1.1976" />
+        <joint name="robot2_shoulder_lift_joint" value="-0.5033" />
+        <joint name="robot2_shoulder_pan_joint" value="-0.2603" />
+        <joint name="robot2_wrist_1_joint" value="-2.239" />
+        <joint name="robot2_wrist_2_joint" value="-1.5447" />
+        <joint name="robot2_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R1Place2" group="robot1">
+        <joint name="robot1_elbow_joint" value="1.753" />
+        <joint name="robot1_shoulder_lift_joint" value="-0.5033" />
+        <joint name="robot1_shoulder_pan_joint" value="-1.9266" />
+        <joint name="robot1_wrist_1_joint" value="-2.8291" />
+        <joint name="robot1_wrist_2_joint" value="-1.5447" />
+        <joint name="robot1_wrist_3_joint" value="1.9266" />
+    </group_state>
+    <group_state name="R1Relax" group="robot1">
+        <joint name="robot1_elbow_joint" value="1.6836" />
+        <joint name="robot1_shoulder_lift_joint" value="-0.781" />
+        <joint name="robot1_shoulder_pan_joint" value="-1.9266" />
+        <joint name="robot1_wrist_1_joint" value="-2.8638" />
+        <joint name="robot1_wrist_2_joint" value="-1.57" />
+        <joint name="robot1_wrist_3_joint" value="1.9266" />
+    </group_state>
+    <group_state name="R1Place" group="robot1">
+        <joint name="robot1_elbow_joint" value="1.7183" />
+        <joint name="robot1_shoulder_lift_joint" value="-0.4686" />
+        <joint name="robot1_shoulder_pan_joint" value="-1.9266" />
+        <joint name="robot1_wrist_1_joint" value="-2.8291" />
+        <joint name="robot1_wrist_2_joint" value="-1.5567" />
+        <joint name="robot1_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R1PrePick" group="robot1">
+        <joint name="robot1_elbow_joint" value="2.0307" />
+        <joint name="robot1_shoulder_lift_joint" value="-0.9199" />
+        <joint name="robot1_shoulder_pan_joint" value="-0.2603" />
+        <joint name="robot1_wrist_1_joint" value="-2.7249" />
+        <joint name="robot1_wrist_2_joint" value="-1.57" />
+        <joint name="robot1_wrist_3_joint" value="1.9266" />
+    </group_state>
+    <group_state name="R2PrePlace" group="robot2">
+        <joint name="robot2_elbow_joint" value="1.6141" />
+        <joint name="robot2_shoulder_lift_joint" value="-1.1629" />
+        <joint name="robot2_shoulder_pan_joint" value="1.6489" />
+        <joint name="robot2_wrist_1_joint" value="-2.0307" />
+        <joint name="robot2_wrist_2_joint" value="-1.57" />
+        <joint name="robot2_wrist_3_joint" value="-0.1483" />
+    </group_state>
+    <group_state name="R1PreUnload" group="robot1">
+        <joint name="robot1_elbow_joint" value="1.8571" />
+        <joint name="robot1_shoulder_lift_joint" value="-1.3364" />
+        <joint name="robot1_shoulder_pan_joint" value="-0.2603" />
+        <joint name="robot1_wrist_1_joint" value="-2.0654" />
+        <joint name="robot1_wrist_2_joint" value="-1.57" />
+        <joint name="robot1_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R2PrePick" group="robot2">
+        <joint name="robot2_elbow_joint" value="1.6141" />
+        <joint name="robot2_shoulder_lift_joint" value="-1.1629" />
+        <joint name="robot2_shoulder_pan_joint" value="-0.2603" />
+        <joint name="robot2_wrist_1_joint" value="-2.0307" />
+        <joint name="robot2_wrist_2_joint" value="-1.57" />
+        <joint name="robot2_wrist_3_joint" value="-0.1483" />
+    </group_state>
+    <group_state name="R2PreUnload" group="robot2">
+        <joint name="robot2_elbow_joint" value="1.6141" />
+        <joint name="robot2_shoulder_lift_joint" value="-1.3712" />
+        <joint name="robot2_shoulder_pan_joint" value="0.0521" />
+        <joint name="robot2_wrist_1_joint" value="-1.7877" />
+        <joint name="robot2_wrist_2_joint" value="-1.57" />
+        <joint name="robot2_wrist_3_joint" value="-0.1483" />
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="fixed_base1" type="fixed" parent_frame="robot1_base_link" child_link="world" />
+    <virtual_joint name="fixed_base2" type="fixed" parent_frame="robot2_base_link" child_link="world" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="camera_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="caster_back_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="caster_front_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="logical_camera1_base_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="logical_camera2_base_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="plate_bottom_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="plate_middle_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="plate_top_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_bottom_0_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_bottom_1_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_bottom_2_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_bottom_3_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_bottom_4_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_bottom_5_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_kinect_0_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_kinect_1_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_middle_0_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_middle_1_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_middle_2_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_middle_3_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_top_0_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_top_1_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_top_2_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pole_top_3_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="robot1_base_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="base_link" link2="wheel_left_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="wheel_right_link" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="camera_link" link2="caster_back_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="caster_front_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="logical_camera1_base_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="logical_camera2_base_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="plate_bottom_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="plate_middle_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_kinect_0_link" reason="Default" />
+    <disable_collisions link1="camera_link" link2="pole_kinect_1_link" reason="Default" />
+    <disable_collisions link1="camera_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="camera_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="camera_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="caster_front_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="logical_camera1_base_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="logical_camera2_base_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="plate_bottom_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="plate_middle_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="caster_back_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="logical_camera1_base_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="logical_camera2_base_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="plate_bottom_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="plate_middle_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="caster_front_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="logical_camera2_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="plate_bottom_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="plate_middle_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="plate_bottom_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="plate_middle_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="plate_bottom_link" link2="plate_middle_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="plate_bottom_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="plate_top_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="pole_kinect_0_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_kinect_1_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_middle_0_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_middle_1_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_middle_2_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_middle_3_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_top_0_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_top_1_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_top_2_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="pole_top_3_link" reason="Default" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="plate_middle_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_bottom_0_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="plate_top_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_bottom_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_0_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_bottom_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_1_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_bottom_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_2_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_bottom_4_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_3_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_bottom_5_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_4_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_kinect_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_bottom_5_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_kinect_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_0_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_middle_0_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_kinect_1_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_middle_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_top_0_link" reason="Default" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_middle_0_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="pole_middle_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="pole_top_1_link" reason="Default" />
+    <disable_collisions link1="pole_middle_1_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_middle_1_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="pole_middle_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="pole_top_2_link" reason="Default" />
+    <disable_collisions link1="pole_middle_2_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_middle_2_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="pole_top_0_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="pole_top_3_link" reason="Default" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_middle_3_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="pole_top_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_top_0_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="pole_top_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_top_1_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="pole_top_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_top_2_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="pole_top_3_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_base_link" link2="robot1_shoulder_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_base_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="robot1_ee_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot1_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot1_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot1_wrist_1_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot1_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot1_wrist_2_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot1_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper1_base_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_base_link" link2="robot2_shoulder_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_base_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_base_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="robot2_ee_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="robot2_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_forearm_link" link2="robot2_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_forearm_link" link2="robot2_wrist_1_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_forearm_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_forearm_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_forearm_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_forearm_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_pedestal_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="robot2_shoulder_link" link2="robot2_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_shoulder_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_shoulder_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_shoulder_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_shoulder_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_shoulder_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="robot2_upper_arm_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_upper_arm_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_upper_arm_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_upper_arm_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="robot2_wrist_2_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="robot2_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper2_base_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper1_suction_cup" reason="Adjacent" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_suction_cup" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_suction_cup" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_suction_cup" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_suction_cup" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper2_base_link" link2="vacuum_gripper2_suction_cup" reason="Adjacent" />
+    <disable_collisions link1="vacuum_gripper2_base_link" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper2_base_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper2_suction_cup" link2="wheel_left_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper2_suction_cup" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="wheel_left_link" link2="wheel_right_link" reason="Never" />
+    <disable_collisions link1="wheel_left_link" link2="workcell" reason="Never" />
+    <disable_collisions link1="wheel_right_link" link2="workcell" reason="Never" />
+</robot>

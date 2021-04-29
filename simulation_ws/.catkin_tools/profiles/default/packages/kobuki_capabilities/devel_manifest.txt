@@ -1,0 +1,5 @@
+kobuki/kobuki_capabilities
+/home/comp2/simulation_ws/devel/.private/kobuki_capabilities/cmake.lock /home/comp2/simulation_ws/devel/./cmake.lock
+/home/comp2/simulation_ws/devel/.private/kobuki_capabilities/lib/pkgconfig/kobuki_capabilities.pc /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_capabilities.pc
+/home/comp2/simulation_ws/devel/.private/kobuki_capabilities/share/kobuki_capabilities/cmake/kobuki_capabilitiesConfig.cmake /home/comp2/simulation_ws/devel/share/kobuki_capabilities/cmake/kobuki_capabilitiesConfig.cmake
+/home/comp2/simulation_ws/devel/.private/kobuki_capabilities/share/kobuki_capabilities/cmake/kobuki_capabilitiesConfig-version.cmake /home/comp2/simulation_ws/devel/share/kobuki_capabilities/cmake/kobuki_capabilitiesConfig-version.cmake

@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/devel/.private/final_project
+
+Name: final_project
+Description: Description of final_project
+Version: 0.0.0
+Cflags: -I/home/comp2/simulation_ws/devel/.private/final_project/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs message_runtime

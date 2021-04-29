@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="pick_demo2">
+
+	<executable package_path="my_factory_states.pick_demo2_sm" class="pick_demo2SM" />
+	<tagstring></tagstring>
+	<author>xinyinhoe</author>
+	<date>Tue Mar 16 2021</date>
+	<description>
+		R2 pick box from Turtlebot
+
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

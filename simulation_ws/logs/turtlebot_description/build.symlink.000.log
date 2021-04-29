@@ -1,0 +1,3 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/turtlebot_description.pc
+Symlinking /home/comp2/simulation_ws/devel/share/turtlebot_description/cmake/turtlebot_descriptionConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/turtlebot_description/cmake/turtlebot_descriptionConfig-version.cmake

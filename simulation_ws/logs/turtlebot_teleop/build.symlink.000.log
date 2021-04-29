@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/turtlebot_teleop/turtlebot_teleop_joy
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/turtlebot_teleop.pc
+Symlinking /home/comp2/simulation_ws/devel/share/turtlebot_teleop/cmake/turtlebot_teleopConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/turtlebot_teleop/cmake/turtlebot_teleopConfig-version.cmake

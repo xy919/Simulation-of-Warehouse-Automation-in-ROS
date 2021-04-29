@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/kobuki_gazebo/share/kobuki_gazebo/cmake/kobuki_gazeboConfig-version.cmake

@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/devel/.private/flexbe_input
+
+Name: flexbe_input
+Description: Description of flexbe_input
+Version: 1.3.1
+Cflags: -I/home/comp2/simulation_ws/src/flexbe_behavior_engine/flexbe_input/src
+Libs: -L${prefix}/lib 
+Requires: 

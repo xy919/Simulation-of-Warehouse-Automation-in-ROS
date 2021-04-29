@@ -1,0 +1,152 @@
+;; Auto-generated. Do not edit!
+
+
+(when (boundp 'flexbe_msgs::BehaviorExecutionGoal)
+  (if (not (find-package "FLEXBE_MSGS"))
+    (make-package "FLEXBE_MSGS"))
+  (shadow 'BehaviorExecutionGoal (find-package "FLEXBE_MSGS")))
+(unless (find-package "FLEXBE_MSGS::BEHAVIOREXECUTIONGOAL")
+  (make-package "FLEXBE_MSGS::BEHAVIOREXECUTIONGOAL"))
+
+(in-package "ROS")
+;;//! \htmlinclude BehaviorExecutionGoal.msg.html
+
+
+(defclass flexbe_msgs::BehaviorExecutionGoal
+  :super ros::object
+  :slots (_behavior_name _arg_keys _arg_values _input_keys _input_values ))
+
+(defmethod flexbe_msgs::BehaviorExecutionGoal
+  (:init
+   (&key
+    ((:behavior_name __behavior_name) "")
+    ((:arg_keys __arg_keys) (let (r) (dotimes (i 0) (push "" r)) r))
+    ((:arg_values __arg_values) (let (r) (dotimes (i 0) (push "" r)) r))
+    ((:input_keys __input_keys) (let (r) (dotimes (i 0) (push "" r)) r))
+    ((:input_values __input_values) (let (r) (dotimes (i 0) (push "" r)) r))
+    )
+   (send-super :init)
+   (setq _behavior_name (string __behavior_name))
+   (setq _arg_keys __arg_keys)
+   (setq _arg_values __arg_values)
+   (setq _input_keys __input_keys)
+   (setq _input_values __input_values)
+   self)
+  (:behavior_name
+   (&optional __behavior_name)
+   (if __behavior_name (setq _behavior_name __behavior_name)) _behavior_name)
+  (:arg_keys
+   (&optional __arg_keys)
+   (if __arg_keys (setq _arg_keys __arg_keys)) _arg_keys)
+  (:arg_values
+   (&optional __arg_values)
+   (if __arg_values (setq _arg_values __arg_values)) _arg_values)
+  (:input_keys
+   (&optional __input_keys)
+   (if __input_keys (setq _input_keys __input_keys)) _input_keys)
+  (:input_values
+   (&optional __input_values)
+   (if __input_values (setq _input_values __input_values)) _input_values)
+  (:serialization-length
+   ()
+   (+
+    ;; string _behavior_name
+    4 (length _behavior_name)
+    ;; string[] _arg_keys
+    (apply #'+ (mapcar #'(lambda (x) (+ 4 (length x))) _arg_keys)) 4
+    ;; string[] _arg_values
+    (apply #'+ (mapcar #'(lambda (x) (+ 4 (length x))) _arg_values)) 4
+    ;; string[] _input_keys
+    (apply #'+ (mapcar #'(lambda (x) (+ 4 (length x))) _input_keys)) 4
+    ;; string[] _input_values
+    (apply #'+ (mapcar #'(lambda (x) (+ 4 (length x))) _input_values)) 4
+    ))
+  (:serialize
+   (&optional strm)
+   (let ((s (if strm strm
+              (make-string-output-stream (send self :serialization-length)))))
+     ;; string _behavior_name
+       (write-long (length _behavior_name) s) (princ _behavior_name s)
+     ;; string[] _arg_keys
+     (write-long (length _arg_keys) s)
+     (dolist (elem _arg_keys)
+       (write-long (length elem) s) (princ elem s)
+       )
+     ;; string[] _arg_values
+     (write-long (length _arg_values) s)
+     (dolist (elem _arg_values)
+       (write-long (length elem) s) (princ elem s)
+       )
+     ;; string[] _input_keys
+     (write-long (length _input_keys) s)
+     (dolist (elem _input_keys)
+       (write-long (length elem) s) (princ elem s)
+       )
+     ;; string[] _input_values
+     (write-long (length _input_values) s)
+     (dolist (elem _input_values)
+       (write-long (length elem) s) (princ elem s)
+       )
+     ;;
+     (if (null strm) (get-output-stream-string s))))
+  (:deserialize
+   (buf &optional (ptr- 0))
+   ;; string _behavior_name
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _behavior_name (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; string[] _arg_keys
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _arg_keys (make-list n))
+     (dotimes (i n)
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setf (elt _arg_keys i) (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+     ))
+   ;; string[] _arg_values
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _arg_values (make-list n))
+     (dotimes (i n)
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setf (elt _arg_values i) (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+     ))
+   ;; string[] _input_keys
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _input_keys (make-list n))
+     (dotimes (i n)
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setf (elt _input_keys i) (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+     ))
+   ;; string[] _input_values
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _input_values (make-list n))
+     (dotimes (i n)
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setf (elt _input_values i) (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+     ))
+   ;;
+   self)
+  )
+
+(setf (get flexbe_msgs::BehaviorExecutionGoal :md5sum-) "448c2298fe3c13b6fd73cfc07e865a14")
+(setf (get flexbe_msgs::BehaviorExecutionGoal :datatype-) "flexbe_msgs/BehaviorExecutionGoal")
+(setf (get flexbe_msgs::BehaviorExecutionGoal :definition-)
+      "# ====== DO NOT MODIFY! AUTOGENERATED FROM AN ACTION DEFINITION ======
+# Commands the execution of any behavior.
+
+# name of the behavior to be executed
+string behavior_name
+
+# optional list of behavior parameters
+string[] arg_keys
+string[] arg_values
+
+# optional list of initial userdata
+string[] input_keys
+string[] input_values
+
+
+")
+
+
+
+(provide :flexbe_msgs/BehaviorExecutionGoal "448c2298fe3c13b6fd73cfc07e865a14")
+
+

@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/flexbe_onboard/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/flexbe_onboard.pc
+Symlinking /home/comp2/simulation_ws/devel/share/flexbe_onboard/cmake/flexbe_onboardConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/flexbe_onboard/cmake/flexbe_onboardConfig-version.cmake

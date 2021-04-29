@@ -1,0 +1,4 @@
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_gazebo_plugins/lib/libgazebo_ros_kobuki.so, /home/comp2/simulation_ws/devel/lib/libgazebo_ros_kobuki.so)
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_gazebo_plugins/lib/pkgconfig/kobuki_gazebo_plugins.pc, /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_gazebo_plugins.pc)
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_gazebo_plugins/share/kobuki_gazebo_plugins/cmake/kobuki_gazebo_pluginsConfig.cmake, /home/comp2/simulation_ws/devel/share/kobuki_gazebo_plugins/cmake/kobuki_gazebo_pluginsConfig.cmake)
+Linked: (/home/comp2/simulation_ws/devel/.private/kobuki_gazebo_plugins/share/kobuki_gazebo_plugins/cmake/kobuki_gazebo_pluginsConfig-version.cmake, /home/comp2/simulation_ws/devel/share/kobuki_gazebo_plugins/cmake/kobuki_gazebo_pluginsConfig-version.cmake)

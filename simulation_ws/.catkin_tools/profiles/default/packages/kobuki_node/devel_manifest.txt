@@ -1,0 +1,7 @@
+kobuki/kobuki_node
+/home/comp2/simulation_ws/devel/.private/kobuki_node/cmake.lock /home/comp2/simulation_ws/devel/./cmake.lock
+/home/comp2/simulation_ws/devel/.private/kobuki_node/lib/libkobuki_ros.so /home/comp2/simulation_ws/devel/lib/libkobuki_ros.so
+/home/comp2/simulation_ws/devel/.private/kobuki_node/lib/libkobuki_nodelet.so /home/comp2/simulation_ws/devel/lib/libkobuki_nodelet.so
+/home/comp2/simulation_ws/devel/.private/kobuki_node/lib/pkgconfig/kobuki_node.pc /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_node.pc
+/home/comp2/simulation_ws/devel/.private/kobuki_node/share/kobuki_node/cmake/kobuki_nodeConfig-version.cmake /home/comp2/simulation_ws/devel/share/kobuki_node/cmake/kobuki_nodeConfig-version.cmake
+/home/comp2/simulation_ws/devel/.private/kobuki_node/share/kobuki_node/cmake/kobuki_nodeConfig.cmake /home/comp2/simulation_ws/devel/share/kobuki_node/cmake/kobuki_nodeConfig.cmake

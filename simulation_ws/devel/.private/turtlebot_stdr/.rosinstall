@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/comp2/simulation_ws/devel/.private/turtlebot_stdr/setup.sh

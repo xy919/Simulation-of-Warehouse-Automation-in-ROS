@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/kobuki_qtestsuite/lib/python2.7/dist-packages/kobuki_qtestsuite/__init__.py

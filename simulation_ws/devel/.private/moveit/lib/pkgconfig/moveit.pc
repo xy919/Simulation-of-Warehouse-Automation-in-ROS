@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/devel/.private/moveit
+
+Name: moveit
+Description: Description of moveit
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

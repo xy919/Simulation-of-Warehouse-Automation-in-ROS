@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="final_simulation">
+
+	<executable package_path="my_factory_states.final_simulation_sm" class="final_simulationSM" />
+	<tagstring></tagstring>
+	<author>XinyinHoe</author>
+	<date>Sun Mar 28 2021</date>
+	<description>
+		full simulation
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="pick_demo" />
+	<contains name="pick_demo2" />
+	<contains name="place_demo" />
+	<contains name="place_demo2" />
+
+	<!-- Available Parameters -->
+
+</behavior>

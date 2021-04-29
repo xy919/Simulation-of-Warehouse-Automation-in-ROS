@@ -1,0 +1,3 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/feb_moveit.pc
+Symlinking /home/comp2/simulation_ws/devel/share/feb_moveit/cmake/feb_moveitConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/feb_moveit/cmake/feb_moveitConfig-version.cmake

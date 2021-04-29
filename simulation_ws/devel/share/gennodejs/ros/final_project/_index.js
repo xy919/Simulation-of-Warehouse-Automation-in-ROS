@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/final_project/share/gennodejs/ros/final_project/_index.js

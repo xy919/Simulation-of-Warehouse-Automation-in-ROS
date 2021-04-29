@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/devel/.private/feb_moveit
+
+Name: feb_moveit
+Description: Description of feb_moveit
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

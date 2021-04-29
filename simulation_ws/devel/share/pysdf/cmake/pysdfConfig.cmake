@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/pysdf/share/pysdf/cmake/pysdfConfig.cmake

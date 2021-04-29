@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/install
+
+Name: moveit_python
+Description: Description of moveit_python
+Version: 0.4.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

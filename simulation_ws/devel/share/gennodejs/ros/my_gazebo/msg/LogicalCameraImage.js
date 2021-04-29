@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/my_gazebo/share/gennodejs/ros/my_gazebo/msg/LogicalCameraImage.js

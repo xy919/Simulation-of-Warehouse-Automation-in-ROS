@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/flexbe_mirror/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/flexbe_mirror.pc
+Symlinking /home/comp2/simulation_ws/devel/share/flexbe_mirror/cmake/flexbe_mirrorConfig-version.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/flexbe_mirror/cmake/flexbe_mirrorConfig.cmake

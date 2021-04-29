@@ -1,0 +1,1 @@
+/home/comp2/simulation_ws/devel/.private/hrwros_week6/share/hrwros_week6/cmake/hrwros_week6Config.cmake

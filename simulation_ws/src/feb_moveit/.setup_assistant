@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: my_support
+    relative_path: urdf/hrwros.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/hrwros.srdf
+  CONFIG:
+    author_name: xinyinhoe
+    author_email: xinyin919@gmail.com
+    generated_timestamp: 1613990737

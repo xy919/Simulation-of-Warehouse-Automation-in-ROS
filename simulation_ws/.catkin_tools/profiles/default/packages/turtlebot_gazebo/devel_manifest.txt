@@ -1,0 +1,6 @@
+turtlebot_simulator/turtlebot_gazebo
+/home/comp2/simulation_ws/devel/.private/turtlebot_gazebo/cmake.lock /home/comp2/simulation_ws/devel/./cmake.lock
+/home/comp2/simulation_ws/devel/.private/turtlebot_gazebo/etc/catkin/profile.d/25.turtlebot-gazebo.sh /home/comp2/simulation_ws/devel/etc/catkin/profile.d/25.turtlebot-gazebo.sh
+/home/comp2/simulation_ws/devel/.private/turtlebot_gazebo/lib/pkgconfig/turtlebot_gazebo.pc /home/comp2/simulation_ws/devel/lib/pkgconfig/turtlebot_gazebo.pc
+/home/comp2/simulation_ws/devel/.private/turtlebot_gazebo/share/turtlebot_gazebo/cmake/turtlebot_gazeboConfig-version.cmake /home/comp2/simulation_ws/devel/share/turtlebot_gazebo/cmake/turtlebot_gazeboConfig-version.cmake
+/home/comp2/simulation_ws/devel/.private/turtlebot_gazebo/share/turtlebot_gazebo/cmake/turtlebot_gazeboConfig.cmake /home/comp2/simulation_ws/devel/share/turtlebot_gazebo/cmake/turtlebot_gazeboConfig.cmake

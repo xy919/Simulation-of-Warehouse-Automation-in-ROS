@@ -1,0 +1,15 @@
+(cl:defpackage final_project-srv
+  (:use )
+  (:export
+   "CENTROID"
+   "<CENTROID-REQUEST>"
+   "CENTROID-REQUEST"
+   "<CENTROID-RESPONSE>"
+   "CENTROID-RESPONSE"
+   "TRAJECTORY"
+   "<TRAJECTORY-REQUEST>"
+   "TRAJECTORY-REQUEST"
+   "<TRAJECTORY-RESPONSE>"
+   "TRAJECTORY-RESPONSE"
+  ))
+

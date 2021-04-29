@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/my_factory_states/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/my_factory_states.pc
+Symlinking /home/comp2/simulation_ws/devel/share/my_factory_states/cmake/my_factory_statesConfig-version.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/my_factory_states/cmake/my_factory_statesConfig.cmake

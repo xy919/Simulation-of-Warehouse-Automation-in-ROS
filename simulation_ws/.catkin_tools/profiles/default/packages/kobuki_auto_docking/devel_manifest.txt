@@ -1,0 +1,7 @@
+kobuki/kobuki_auto_docking
+/home/comp2/simulation_ws/devel/.private/kobuki_auto_docking/cmake.lock /home/comp2/simulation_ws/devel/./cmake.lock
+/home/comp2/simulation_ws/devel/.private/kobuki_auto_docking/lib/libkobuki_auto_docking_ros.so /home/comp2/simulation_ws/devel/lib/libkobuki_auto_docking_ros.so
+/home/comp2/simulation_ws/devel/.private/kobuki_auto_docking/lib/libkobuki_auto_docking_nodelet.so /home/comp2/simulation_ws/devel/lib/libkobuki_auto_docking_nodelet.so
+/home/comp2/simulation_ws/devel/.private/kobuki_auto_docking/lib/pkgconfig/kobuki_auto_docking.pc /home/comp2/simulation_ws/devel/lib/pkgconfig/kobuki_auto_docking.pc
+/home/comp2/simulation_ws/devel/.private/kobuki_auto_docking/share/kobuki_auto_docking/cmake/kobuki_auto_dockingConfig-version.cmake /home/comp2/simulation_ws/devel/share/kobuki_auto_docking/cmake/kobuki_auto_dockingConfig-version.cmake
+/home/comp2/simulation_ws/devel/.private/kobuki_auto_docking/share/kobuki_auto_docking/cmake/kobuki_auto_dockingConfig.cmake /home/comp2/simulation_ws/devel/share/kobuki_auto_docking/cmake/kobuki_auto_dockingConfig.cmake

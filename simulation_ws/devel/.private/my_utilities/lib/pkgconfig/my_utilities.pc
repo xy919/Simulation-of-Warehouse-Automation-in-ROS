@@ -1,0 +1,8 @@
+prefix=/home/comp2/simulation_ws/devel/.private/my_utilities
+
+Name: my_utilities
+Description: Description of my_utilities
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

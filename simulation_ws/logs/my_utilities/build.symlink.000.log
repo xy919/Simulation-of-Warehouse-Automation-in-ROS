@@ -1,0 +1,4 @@
+Symlinking /home/comp2/simulation_ws/devel/lib/python2.7/dist-packages/my_utilities/__init__.py
+Symlinking /home/comp2/simulation_ws/devel/lib/pkgconfig/my_utilities.pc
+Symlinking /home/comp2/simulation_ws/devel/share/my_utilities/cmake/my_utilitiesConfig.cmake
+Symlinking /home/comp2/simulation_ws/devel/share/my_utilities/cmake/my_utilitiesConfig-version.cmake
