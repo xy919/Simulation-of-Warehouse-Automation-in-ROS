@@ -1,6 +1,6 @@
 # Warehouse-Automation-Simulation-in-ROS
 
-# Steps
+## Steps
 Install the workspace
 ```
 $ git clone https://github.com/xy919/Simulation-of-Warehouse-Automation-in-ROS.git
@@ -26,13 +26,13 @@ $ sudo apt install ros-melodic-yocs-cmd-vel-mux
 $ sudo apt-get install pyqt5-dev-tools #install Development tools for PyQt5
 
 ```
-# Launch Gazebo with the environment
+### Launch Gazebo with the environment
 
 ```
 $ roslaunch my_simulations final_simulation.launch
 ```
 
-# Launch FlexBE App for simulation control
+### Launch FlexBE App for simulation control
 ```
 $ roslaunch flexbe_app flexbe_full.launch
 ```
